@@ -7,7 +7,7 @@ curl -O "$REPO_URL"
 # 2. Install Homebrew if it's missing
 if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
 fi
 
 # 3. Install Python if missing
@@ -17,7 +17,7 @@ if ! command -v python3 &> /dev/null; then
 fi
 
 # 4. Install py2app
-pip3 install --user py2app
+python3 -m pip install --user py2app
 
 # 5. Create minimal setup.py
 cat <<EOF > setup.py
@@ -43,4 +43,4 @@ mv dist/*.app ./
 rm -rf build dist __pycache__ setup.py combine_pdfs.py
 
 # 9. Delete self
-rm -- "\$0"
+rm -- "$0"
