@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 1. Download Python script from GitHub
-REPO_URL="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/your_script.py"
+REPO_URL="https://raw.githubusercontent.com/cad3n123/combine_pdfs/main/combine_pdfs.py"
 curl -O "$REPO_URL"
 
 # 2. Install Homebrew if it's missing
@@ -23,7 +23,7 @@ pip3 install --user py2app
 cat <<EOF > setup.py
 from setuptools import setup
 
-APP = ['your_script.py']
+APP = ['combine_pdfs.py']
 OPTIONS = {'argv_emulation': True, 'packages': ['PyQt5', 'PyPDF2']}
 
 setup(
@@ -40,7 +40,7 @@ python3 setup.py py2app
 mv dist/*.app ./
 
 # 8. Cleanup
-rm -rf build dist __pycache__ setup.py your_script.py
+rm -rf build dist __pycache__ setup.py combine_pdfs.py
 
 # 9. Delete self
 rm -- "\$0"
