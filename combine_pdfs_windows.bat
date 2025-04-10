@@ -50,6 +50,3 @@ rmdir /s /q build
 rmdir /s /q dist
 del combine_pdfs.spec
 del combine_pdfs.py
-
-REM 8. Delete this script
-del "%~f0"
